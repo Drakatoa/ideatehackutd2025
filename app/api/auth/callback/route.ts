@@ -6,13 +6,16 @@ export async function GET(request: Request) {
   const code = requestUrl.searchParams.get('code')
   const nextUrl = requestUrl.searchParams.get('next') ?? '/whiteboard'
 
+  // Use environment variable for production, fallback to request origin for development
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || requestUrl.origin
+
   if (code) {
     const supabase = await createClient()
     const { error } = await supabase.auth.exchangeCodeForSession(code)
     
     if (error) {
       console.error('Error exchanging code for session:', error)
-      return NextResponse.redirect(`${requestUrl.origin}/?error=auth_failed`)
+      return NextResponse.redirect(`${siteUrl}/?error=auth_failed`)
     }
 
     // Get the session to verify it was created
@@ -20,11 +23,11 @@ export async function GET(request: Request) {
     
     if (session) {
       // Successfully authenticated - redirect with cookies preserved
-      return NextResponse.redirect(`${requestUrl.origin}${nextUrl}`)
+      return NextResponse.redirect(`${siteUrl}${nextUrl}`)
     }
   }
 
   // Return the user to an error page
-  return NextResponse.redirect(`${requestUrl.origin}/?error=auth_failed`)
+  return NextResponse.redirect(`${siteUrl}/?error=auth_failed`)
 }
 

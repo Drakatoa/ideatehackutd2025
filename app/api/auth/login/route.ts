@@ -5,10 +5,13 @@ export async function GET(request: Request) {
   const requestUrl = new URL(request.url)
   const supabase = await createClient()
 
+  // Use environment variable for production, fallback to request origin for development
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || requestUrl.origin
+
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
     options: {
-      redirectTo: `${requestUrl.origin}/api/auth/callback`,
+      redirectTo: `${siteUrl}/api/auth/callback`,
     },
   })
 
