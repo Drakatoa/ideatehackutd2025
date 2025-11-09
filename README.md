@@ -19,33 +19,6 @@ Transform your sketches and ideas into polished product concepts, diagrams, and 
 - **AI**: NVIDIA Nemotron API
 - **UI**: Radix UI, shadcn/ui
 
-## 📦 Getting Started
-
-1. **Clone the repository**
-   ```bash
-   git clone <your-repo-url>
-   cd HackUTD2025Ideate
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Set up environment variables**
-   - Copy `env.template` to `.env.local`
-   - Fill in your Supabase and NVIDIA API credentials
-
-4. **Run the development server**
-   ```bash
-   npm run dev
-   ```
-
-5. **Open [http://localhost:3000](http://localhost:3000)**
-
-## 🔐 Environment Variables
-
-See `env.template` for required environment variables.
 
 ## 📝 License
 
