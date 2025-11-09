@@ -368,18 +368,10 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="relative z-10 border-t border-border/50 mt-24">
         <div className="container mx-auto px-6 py-8">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-center">
             <div className="flex items-center gap-2">
               <img src="/ideate-icon.png" alt="Ideate" className="w-5 h-5" />
               <span className="text-sm text-muted-foreground">{"Made with ✨ for dreamers and builders"}</span>
-            </div>
-            <div className="flex items-center gap-6">
-              <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Privacy
-              </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Terms
-              </a>
             </div>
           </div>
         </div>
