@@ -2,6 +2,8 @@
 
 Transform your sketches and ideas into polished product concepts, diagrams, and business pitches using AI.
 
+Check out the Devpost [here](https://devpost.com/software/ideate-mratxn)! 
+
 ## 🚀 Features
 
 - **Interactive Whiteboard** - Draw, sketch, and organize your ideas
