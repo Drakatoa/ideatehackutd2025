@@ -31,13 +31,8 @@ export async function middleware(request: NextRequest) {
 
   // IMPORTANT: Refresh session if expired - required for session persistence
   // This ensures the session cookie is refreshed on every request
-  const { data: { user } } = await supabase.auth.getUser()
-  
-  // If user exists, ensure session is refreshed
-  if (user) {
-    const { data: { session } } = await supabase.auth.getSession()
-    // Session refresh happens automatically via setAll above
-  }
+  // getUser() validates the token and refreshes it if needed - no need for getSession()
+  await supabase.auth.getUser()
 
   return supabaseResponse
 }
